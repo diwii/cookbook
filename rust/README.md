@@ -30,7 +30,8 @@ Local documentation:
 
 `rustc [hello_world.rs]`
 
-# Creating a Project with Cargo
+# Cargo
+## Creating a Project with Cargo
 
 `cargo --version`
 
@@ -50,7 +51,7 @@ Check if code compiles without runing:
 
 `cargo check`
 
-Result is stored in target/debug directory
+Build result is stored in target/debug directory
 
 **Working on any existing project**
 
@@ -59,3 +60,17 @@ git clone example.org/someproject
 cd someproject
 cargo build
 ```
+
+## cargo doc --open
+Build documentation provided by all of your dependencies locally and open it in your browser
+
+# What is what, what?
+
+**Variables and References(&) are immutable by default.**
+`let variable_name = ...`
+`let mut variable_name = ...` *Sets mutable variable*
+
+```rust
+.read_line(&mut guess)
+```
+The `&` indicates that this argument is a reference, which gives you a way to let multiple parts of your code access one piece of data without needing to copy that data into memory multiple times.
