@@ -16,7 +16,9 @@ or shorter:
 
 https://www.cyberciti.biz/faq/show-all-running-processes-in-linux/
 
-ps command in combination with grep to find process id
+ps command in combination with grep to find process id, for grep
+
+> ps -A | grep [command_name]
 
 > ps -A | grep firefox
 
