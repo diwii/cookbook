@@ -49,5 +49,7 @@ https://askubuntu.com/questions/151941/how-can-you-completely-remove-a-package
 purge is identical to remove except that packages are removed and purged (any configuration files are deleted too).
 
 > sudo apt-get purge [package_name]
+> 
 > sudo apt-get autoremove
+> 
 > sudo apt-get clean
