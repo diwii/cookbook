@@ -67,7 +67,9 @@ Build documentation provided by all of your dependencies locally and open it in 
 # What is what, what?
 
 **Variables and References(&) are immutable by default.**
+
 `let variable_name = ...`
+
 `let mut variable_name = ...` *Sets mutable variable*
 
 ```rust
