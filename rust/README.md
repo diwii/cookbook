@@ -1,6 +1,7 @@
 # Rust lang
 * https://doc.rust-lang.org/book/
 * https://www.rust-lang.org/learn
+* [Appendix B - List of operators](https://doc.rust-lang.org/book/appendix-02-operators.html)
 
 # Installation
 
