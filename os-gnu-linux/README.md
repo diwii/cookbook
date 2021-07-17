@@ -1,6 +1,6 @@
 # Gnu/Linux commands
 
 Reload bash settings:
-> source ~/.bashrc
+`source ~/.bashrc`
 or shorter
-> . ~/.bashrc
+`. ~/.bashrc`
