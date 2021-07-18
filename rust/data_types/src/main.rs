@@ -4,7 +4,7 @@ fn main() {
 
     // Integer type (is a number without fraction component)
     // =====================================================
-    let small_num_8_bit: i8 = -128; // Signed (minus)
+    let small_num_8_bit: i8 = -128; // Signed (minus), i8 max: is 127, min: -128
     println!("small_num_8_bit: {}", small_num_8_bit);
     
     let medium_num_16_bit: u16 = 65535; // Unsigned (only positive)

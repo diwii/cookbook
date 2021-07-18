@@ -1,5 +1,5 @@
 fn main() {
-    const MAX_POINTS: u32 = 100_000;
+    const MAX_POINTS: u32 = 100_000; // When declaring const its type must be annotated -> : u32
     println!("The value of MAX_POINTS is: {}", MAX_POINTS);
 
     let x = 5;
@@ -21,6 +21,6 @@ fn main() {
     println!("The value of z is: {:?}", z);
     let z = "89"; // String slice
     println!("The value of z is: {:?}", z);
-    let z: u32 = z.parse().unwrap(); // Parse to int
+    let z: u32 = z.parse().unwrap(); // Parse to int (u32)
     println!("The value of z is: {:?}", z);
 }
