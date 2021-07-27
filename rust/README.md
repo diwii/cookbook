@@ -1,7 +1,11 @@
 # Rust lang
 * https://doc.rust-lang.org/book/
 * https://www.rust-lang.org/learn
+* [Rust by example](https://doc.rust-lang.org/rust-by-example/index.html)
 * [Appendix B - List of operators](https://doc.rust-lang.org/book/appendix-02-operators.html)
+
+Crate = package;
+[Crates.io](https://crates.io/) is where people in the Rust ecosystem post their open source Rust projects for others to use.
 
 # Installation
 
@@ -66,6 +70,8 @@ cargo build
 Build documentation provided by all of your dependencies locally and open it in your browser
 
 # What is what, what?
+
+* What is trait? - Trait is similar to Interface/Abstract class, a set of methods for a Type (class)
 
 **Variables and References(&) are immutable by default.**
 
