@@ -1,4 +1,5 @@
 fn main() {
+    // Const is known at compilation time
     const MAX_POINTS: u32 = 100_000; // When declaring const its type must be annotated -> : u32
     println!("The value of MAX_POINTS is: {}", MAX_POINTS);
 
@@ -23,4 +24,6 @@ fn main() {
     println!("The value of z is: {:?}", z);
     let z: u32 = z.parse().unwrap(); // Parse to int (u32)
     println!("The value of z is: {:?}", z);
+    let z: String = "1".to_string(); // Create String
+    println!("The value of z is: {}", z);
 }

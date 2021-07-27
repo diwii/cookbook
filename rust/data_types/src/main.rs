@@ -1,4 +1,6 @@
 fn main() {
+    let guess: u32 = "42".parse().unwrap();
+
     // Scalar type represents a single value
     // integer, floating-point number, boolean, character
 
@@ -10,6 +12,7 @@ fn main() {
     let medium_num_16_bit: u16 = 65535; // Unsigned (only positive)
     println!("medium_num_16_bit: {}", medium_num_16_bit);
 
+    // Number literals
     let decimal = 98_222; // Default is u32
     println!("decimal: {}", decimal);
     
@@ -25,6 +28,7 @@ fn main() {
     let byte = b'A'; // u8 only
     println!("byte: {}", byte);
 
+    // usize/isize depend on the kind of computer your program is running 64 or 32 bit
     let largest_based_on_system: usize = 18_446_744_073_709_551_615; // if 64 bit system | usize / isize
     println!("largest_based_on_system: {}", largest_based_on_system);
 
