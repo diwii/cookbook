@@ -24,6 +24,10 @@ Rename current branch:
 
 `git branch -m <new_name>`
 
+**Delete branch**
+
+`git branch -d <branch_name>`
+
 **Undo commit**
 
 https://www.git-tower.com/learn/git/faq/undo-last-commit/
