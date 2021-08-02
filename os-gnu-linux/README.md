@@ -6,7 +6,14 @@
 
 # Gnu/Linux terminal commands
 
-History of entered commands:
+**Write the full path of COMMAND(s) to standard output.:**
+
+> which <command_name>
+
+> $ which node
+> /usr/bin/node
+
+**History of entered commands:**
 
 > history
 
