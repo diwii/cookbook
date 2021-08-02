@@ -22,7 +22,7 @@ fn main() {
     let binary = 0b1111_1111;
     println!("binary: {}", binary);
     
-    let byte = b'A'; // u8 only
+    let byte = b'A'; // u8 only this is single byte
     println!("byte: {}", byte);
 
     let largest_based_on_system: usize = 18_446_744_073_709_551_615; // if 64 bit system | usize / isize
@@ -38,8 +38,8 @@ fn main() {
     let circumference: f64 = (5.0 * 2.0 * PI).into(); // convert f32 to f64 with .into()
     println!("circumference: {}", circumference);
 
-    // Character Type (most primitive alphabetic type)
-    // ===============================================
+    // Character Type (most primitive alphabetic type) size: 4 bytes
+    // =============================================================
 
     // let c = 'z';
     // let z = 'ℤ';
