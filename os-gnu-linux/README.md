@@ -6,6 +6,12 @@
 
 # Gnu/Linux terminal commands
 
+**Sleep/delay command**
+
+Wait 60 minutes and sleep the pc
+
+> sleep 60m; systemctl suspend -i 
+
 **Write the full path of COMMAND(s) to standard output.:**
 
 > which <command_name>
