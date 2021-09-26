@@ -6,7 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not a Circle</title>
 </head>
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .title-container {
+        display: flex;
+    }
+
+    .title {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all .2s;
+    }
+
+    .hidden {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    .expand {
+        transition: all .2s;
+        transform: scale(5);
+    }
+
+    .hide {
+        transition: all var(--transition-duration, .5s);
+        opacity: 0;
+    }
+
+    .heart {
+        background: url('texture/heart.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .heart-holder {
+        background: url('texture/heart-holder.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .pulse {
+        animation-name: pulse;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes pulse {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.5);
+        }
+    }
+</style>
 <body>
+    <header class="title-container">
+        <h1 class="title hidden">Sabīne, es Tevi ļoti daudz Mīlu!</h1>
+    </header>
     <script src="init.js"></script>
 </body>
 </html>

@@ -56,6 +56,12 @@ class Target {
         this.aimer.domNode.style.top = this.domNode.style.top;
         this.aimer.domNode.style.left = this.domNode.style.left;
         // console.log(this.aimer.mouseDrag);
+
+        const targetReached = new CustomEvent("target-reached", {detail: {
+            target: this,
+            aimer: this.aimer
+        }});
+        this.domNode.dispatchEvent(targetReached);
     }
 
     offTarget() {
@@ -162,22 +168,52 @@ class Shape {
     }
 }
 
+const centerX = window.innerWidth / 2;
+const centerY = window.innerHeight / 2;
+
 const rectangle = new Shape;
-rectangle.domNode.style.width = "100px";
-rectangle.domNode.style.height = "100px";
+rectangle.domNode.style.width = "200px";
+rectangle.domNode.style.height = "150px";
 rectangle.domNode.style.transition = ".5s";
-rectangle.domNode.style.backgroundColor = "#00A36C";
+// rectangle.domNode.style.backgroundColor = "#00A36C";
+rectangle.domNode.classList.add("heart");
 rectangle.render();
 
 rectangle.domNode.style.zIndex = "2";
+rectangle.domNode.style.top = window.innerHeight - (rectangle.getHeight() + 50) + "px";
+rectangle.domNode.style.left = window.innerWidth / 2 - (rectangle.getWidth() / 2 - 50) + "px";
 
 
 const mark = new Shape;
 mark.render(); // Render first before getWidth() / getHeight()
-mark.domNode.style.width = "100px";
-mark.domNode.style.height = "100px";
+mark.domNode.style.width = "250px";
+mark.domNode.style.height = "180px";
 mark.domNode.style.left = window.innerWidth / 2 - (mark.getWidth() / 2) + "px";
-mark.domNode.style.top = window.innerHeight / 2 - (mark.getHeight() / 2) + "px";
-mark.domNode.style.backgroundColor = "red";
+mark.domNode.style.top = window.innerHeight / 2 - (mark.getHeight() / 2 + 100) + "px";
+// mark.domNode.style.backgroundColor = "red";
+mark.domNode.classList.add("heart-holder");
 
 rectangle.target = new Target(mark, rectangle);
+
+rectangle.target.domNode.addEventListener('target-reached', function(event) {
+    console.log(event.detail);
+    console.log('Victory!');
+    victory(event.detail.aimer.domNode, event.detail.target.domNode);
+});
+
+function victory(victoryElement, targetElement) {
+    const hidden = document.querySelector('.hidden');
+
+    setTimeout(() => {
+        hidden.classList.remove('hidden');
+
+        victoryElement.style.left = centerX - 100 + "px";
+        victoryElement.style.top = centerY - 200 + "px";
+        victoryElement.classList.remove("hide", "expand");
+        victoryElement.classList.add("pulse");
+    }, 500);
+
+    targetElement.style.setProperty("--transition-duration", ".3s");
+    targetElement.classList.add("hide", "expand");
+    victoryElement.classList.add("hide", "expand");
+}
