@@ -10,5 +10,5 @@
   * Activate Multi Factor Authentication (MFA)
   * Create separate users for specific roles and functions
     * Create group -> "Admin" -> Attach permission policies -> "AdministratorAccess"
-    * Create user -> <username>
+    * Create user -> [username]
 * 
