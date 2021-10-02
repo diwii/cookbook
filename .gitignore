@@ -1,2 +1,5 @@
 webrtc/settings.json
 .vscode/
+.idea/
+# Ignore Python virtual env
+venv/

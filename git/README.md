@@ -28,6 +28,9 @@ Rename current branch:
 
 `git branch -d <branch_name>`
 
+**Delete remote branch**
+`git push origin --delete <branch_name>`
+
 **Undo commit**
 
 https://www.git-tower.com/learn/git/faq/undo-last-commit/
