@@ -1,8 +1,17 @@
 *.js
-!jest.config.js
 *.d.ts
 node_modules
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+# leave only tutorial related files
+.credentials.ts
+cdk.context.json
+package-lock.json
+package.json
+cdk.json
+jest.config.js
+tsconfig.json
+test

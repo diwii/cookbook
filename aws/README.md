@@ -33,7 +33,6 @@
   * If you are accessing more than one AWS account, you can set up profiles
 
 ## Setting Up Your Cloud9 IDE Environment
-
 [Setting Up Your Cloud9 IDE Environment](https://aws.amazon.com/getting-started/guides/setup-environment/module-four/)
 
 * `aws cloud9 create-environment-ec2 --name getting-started --description "Getting started with AWS Cloud9." --instance-type t3.micro --automatic-stop-time-minutes 60` this command will return "environmentId"
@@ -42,6 +41,7 @@
   * `aws cloud9 delete-environment --environment-id <environmentID>`
 
 ## Get Started with AWS CDK(Cloud Development Kit)
+
 [Get Started with AWS CDK](https://aws.amazon.com/getting-started/guides/setup-cdk/)
 
 * Installing the AWS CDK CLI
@@ -55,8 +55,28 @@
   * Bootstrap the account: `cdk bootstrap aws://ACCOUNT-NUMBER/REGION`
 
 ### Create Your First AWS CDK Project
+
+**Create a new CDK Project**
+
 ```
 mkdir cdk-demo
 cd cdk-demo
 cdk init --language typescript
 ```
+
+**Creating infrastructure**
+
+To start building out a project, a common starting point is to create a logically isolated virtual network that you define, called an [Amazon Virtual Private Cloud (VPC)](https://aws.amazon.com/vpc)
+
+**Code for the VPC**
+
+* install [construct library modules](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-construct-library.html). 
+
+`npm install @aws-cdk/aws-ec2`
+
+```typescript
+...
+import { Vpc, SubnetType } from '@aws-cdk/aws-ec2';
+...
+```
+
