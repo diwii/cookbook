@@ -16,8 +16,13 @@ Wait 60 minutes and sleep the pc
 
 > which <command_name>
 
-> $ which node
+> which node
 > /usr/bin/node
+
+**whereis  locates  the  binary, source and manual files for the specified command names.**
+
+> whereis node
+> node: /usr/bin/node
 
 **History of entered commands:**
 
