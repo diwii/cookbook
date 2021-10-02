@@ -2,9 +2,9 @@
 
 **SSH**
 
-(Generating a new SSH key and adding it to the ssh-agent)[https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]
+[Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-(Git push requires username and password)[https://stackoverflow.com/questions/6565357/git-push-requires-username-and-password]
+[Git push requires username and password](https://stackoverflow.com/questions/6565357/git-push-requires-username-and-password)
 
 # Git commands
 
@@ -29,6 +29,7 @@ Rename current branch:
 `git branch -d <branch_name>`
 
 **Delete remote branch**
+
 `git push origin --delete <branch_name>`
 
 **Undo commit**
