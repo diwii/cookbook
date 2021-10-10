@@ -21,8 +21,43 @@ url = "iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = read_csv(url, names = names)
 
-# shape
-print(dataset.shape)
+# Dimensions of Dataset
 
-# head
-print(dataset.head(20))
+#print(dataset.shape)
+
+# Peek at the Data
+
+#print(dataset.head(20))
+
+# Statistical Summary
+
+#print(dataset.describe())
+
+# Class Distribution
+
+#print(dataset.groupby('class').size())
+
+
+#
+# Data Visualization
+#
+
+# Univariate Plots - plots of each individual variable,
+# Box and Whisker plots
+
+#dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+#pyplot.show()
+
+# Histogram
+
+#dataset.hist()
+#pyplot.show()
+
+#
+# Multivariate Plots
+#
+
+# Scatter plot matrix
+
+#scatter_matrix(dataset)
+#pyplot.show()
