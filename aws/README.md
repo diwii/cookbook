@@ -74,6 +74,21 @@ To start building out a project, a common starting point is to create a logicall
 
 `npm install @aws-cdk/aws-ec2`
 
+* `bin/cdk-project.ts` <- Entry point for CDK app. This will load all the stacks we define under `lib/*`
+
+```typescript
+...
+const app = new cdk.App();
+new CdkDemoStack(app, 'CdkDemoStack', {
+  // Add Account nr. and region
+  env: { account: '123456789012', region: 'eu-west-1' },
+
+});
+...
+```
+
+* `lib/cdk-project-stack.ts` <- Main CDK Stack definition (Resources/Properties)
+
 ```typescript
 ...
 import { Vpc, SubnetType } from '@aws-cdk/aws-ec2';
