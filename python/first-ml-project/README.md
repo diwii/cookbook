@@ -1,8 +1,8 @@
 # Steps to create this project
-* `python3 -m venv venv/`
-* `source venv/bin/activate`
-* `python3 -m pip install numpy scipy matplotlib ipython jupyter pandas sympy nose`
-* `python3 -m pip install scikit-learn`
+* `python3 -m venv venv/` create virtual env
+* `source venv/bin/activate` activate virtual env
+* `python3 -m pip install numpy scipy matplotlib ipython jupyter pandas sympy nose` install libraries
+* `python3 -m pip install scikit-learn` install lib
 
 # What is what?
 * Use `python3 version.py` to check if required libraries work.
