@@ -1,0 +1,36 @@
+[Unit]
+Description=Run rock paper scissor game web server
+Documentation=https://github.com/diwii/cookbook
+
+#Wait for main networking functionality of the server to start before executing
+After=network.target
+
+[Service]
+#env variables
+Environment=NODE_PORT=3210
+
+#LOGGING
+StandardOutput=file:/var/log/rockpaper.log
+StandardError=file:/var/log/rockpaper-error.log
+
+#Type simple tell systemd how our app launches itself. It's just going to start up and run.
+Type=simple
+
+#Unprivileged user
+#User=ubuntu
+
+#ExecStart tells systemd what command it should run to launch our app.
+ExecStart=/usr/local/bin/node /var/www/rockpaper/server.js
+
+#The on-failure value is likely what you will want.
+#Using this, the app will NOT restart if it goes away "cleanly".
+#Going away "cleanly" means that it either exits by itself with an exit value of 0, or it gets killed with a "clean" signal,
+#such as the default signal sent by the kill command.
+#Basically, if our app goes away because we want it to, then systemd will leave it turned off.
+#However, if it goes away for any other reason (an unhandled exception crashes the app, for example),
+#then systemd will immediately restart it for us. If you want it to restart no matter what, change the value from on-failure to always.
+#https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScis</title>
+</head>
+<body>
+    <h1>RockPaper <span id="counter"></span></h1>
+    <!-- <button id="rock">ROCK</button> -->
+    <button id="create">New Game</button>
+    <input type="text" id="gameId" />
+    <button id="join">Join game</button>
+
+    <script>
+        let clientId = null;
+        let game = null;
+
+        const ws = new WebSocket('ws://localhost:3000');
+        // const btnRock = document.getElementById('rock');
+        const btnCreate = document.getElementById('create');
+        const btnJoin = document.getElementById('join');
+        const inputGameId = document.getElementById('gameId');
+        const counterContainer = document.getElementById('counter');
+
+        // Events
+
+        // Create btn
+        btnCreate.addEventListener('click', (e) => {
+            const payload = {
+                'method': 'create',
+                'clientId': clientId
+            };
+
+            ws.send(JSON.stringify(payload));
+        });
+
+        // Join btn
+        btnJoin.addEventListener('click', (e) => {
+            // inputGameId;
+
+            const payload = {
+                'method': 'join',
+                'clientId': clientId,
+                'gameId': inputGameId.value
+            };
+
+            ws.send(JSON.stringify(payload));
+        });
+
+
+        // Listen messages from server
+        ws.onmessage = (message) => {
+            //message.data from server
+            const response = JSON.parse(message.data);
+            // console.log(response);
+
+            // connect
+            if (response.method === 'connect') {
+                clientId = response.clientId;
+                console.log(`Client ID:${clientId}`)
+            }
+
+            // create
+            // When server sends info thaat game is created,
+            // there should be options to automatically join created game
+            if (response.method === 'create') {
+                game = response.game;
+                console.log(`game id: ${response.game.id}`);
+                console.log(game);
+
+                inputGameId.value = response.game.id;
+            }
+
+            // join
+            if (response.method === 'join') {
+                game = response.game;
+                console.log(game);
+            }
+
+            if (response.method === 'count') {
+                // console.log(response.data.counter)
+                counterContainer.innerText = response.data.counter;
+
+            }
+        }
+    </script>
+    
+</body>
+</html>
