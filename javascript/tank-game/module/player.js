@@ -1,6 +1,5 @@
 import { Entity } from './entity.js';
 import { handle } from './handlers.js';
-import GAME from './game.js';
 import { Particle } from './particle.js';
 import { getKey } from './key.js';
 
@@ -11,12 +10,12 @@ export class Player extends Entity {
     init() {
         super.init();
 
-        this.x;
-        this.y;
+        this.x = 300;
+        this.y = 300;
         this.color = 'white';
         this.width = 100;
         this.height = 100;
-        this.speed = 5;
+        this.speed = 10;
 
         handle.subscribe(this, 'keydown');
         handle.subscribe(this, 'keyup');
@@ -53,12 +52,15 @@ export class Player extends Entity {
     };
 
     shoot() {
+        if (!this.GAME.playerCanFire()) return;
+
+        const playerShootEvent = new CustomEvent('playerShoot', { detail: this });
         let particle = new Particle(
             this.x + this.width / 2,
             this.y + this.height / 2,
             10,
             10,
-            15
+            5
         );
         particle.color = 'orange';
 
@@ -82,6 +84,7 @@ export class Player extends Entity {
         }
 
         this.GAME.PARTICLES.push(particle); // Dependency????
+        window.dispatchEvent(playerShootEvent);
     }
 
     moveUp() {

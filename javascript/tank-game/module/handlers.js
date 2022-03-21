@@ -2,7 +2,8 @@ export const handle = {
     subscribers: {
         'click': [],
         'keydown': [],
-        'keyup': []
+        'keyup': [],
+        'playerShoot': []
     },
 
     subscribe: function(subscriber, eventName) {
@@ -30,5 +31,9 @@ export const handle = {
 
     click: function(event) {
         this.broadcast('click', event);
+    },
+
+    playerShoot: function(event) {
+        this.broadcast('playerShoot', event);
     }
 };

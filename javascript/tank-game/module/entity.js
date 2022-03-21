@@ -7,6 +7,8 @@ export class Entity {
     width = 0;
     speed = 0;
     color = 'white';
+    initColor = '';
+    collision = false;
 
     direction = {
         x: 1,
@@ -22,6 +24,7 @@ export class Entity {
         this.width = width;
         this.speed = speed;
         this.color = color;
+        this.initColor = color;
 
         this.init();
     };
@@ -31,6 +34,7 @@ export class Entity {
     };
 
     draw(ctx) {
+        this.animation();
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
 
@@ -49,8 +53,6 @@ export class Entity {
         if (this.y < 0) {
             this.y = ctx.canvas.height;
         }
-
-        this.animation();
     };
 
     animation() {
@@ -59,5 +61,33 @@ export class Entity {
 
         this.x += directionX;
         this.y += directionY;
+
+        let collisionColor = 'red';
+        if (this.collision) {
+            this.color = collisionColor;
+        } else {
+            this.color = this.initColor;
+        }
     };
+
+    setCollision(state = true) {
+        this.collision = state;
+    }
+
+    intersects(entity) {
+        let intersectX = this.x + this.width > entity.x && this.x < entity.x + entity.width;
+        let intersectY = this.y + this.height > entity.y && this.y < entity.y + entity.height;
+
+        if (intersectX && intersectY ){
+            console.log('WE COLLIDE');
+
+            this.collision = true;
+            entity.collision = true;
+            return true;
+        }
+    
+        this.collision = false;
+        entity.collision = false;
+        return false;
+    }
 }
