@@ -1,5 +1,17 @@
 function main() {
-    const canvas = document.querySelector("#glCanvas");
+    let CANVAS_WIDTH = 1024;
+    let CANVAS_HEIGHT = 576;
+
+    // Create canvas element
+    const canvas = document.createElement('canvas');
+
+    // Adjust canvas dimensions
+    canvas.width = CANVAS_WIDTH;
+    canvas.height = CANVAS_HEIGHT;
+
+    // Add canvas element to DOM
+    document.querySelector('body').appendChild(canvas);
+
     // Initialize the GL context
     const gl = canvas.getContext("webgl");
 
