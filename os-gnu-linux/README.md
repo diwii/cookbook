@@ -3,6 +3,50 @@
 * The **curl** command.
 * 
 
+# Set Environment Variables
+
+> export VARIABLE_NAME=VALUE
+> echo VARIABLE_NAME
+> unset VARIABLE_NAME
+
+Set env var - *When an environment variable is set from the shell using the export command, its existence ends when the user’s sessions ends.*
+
+> export SAM_CLI_TELEMETRY=0
+
+Unset env var
+
+> unset SAM_CLI_TELEMETRY
+
+Output env var
+
+> echo $SAM_CLI_TELEMETRY
+
+**Persisting Environment Variables for a User**
+
+To make an environment persistent variable for a user’s environment, we export the variable from the user’s profile script.
+
+When you log in graphically, ~/.profile will be specifically sourced by the script that launches gnome-session (or whichever desktop environment you're using)
+
+The .bash_profile file is located in the current user home directory as a hidden file.
+By default, the .bash_profile is not created by most of the Linux distributions.
+~/.bash_profile is only sourced by bash when started in login mode. That is typically when you log in at the console (Ctrl+Alt+F1..F6), connect via ssh, or use sudo -i or su - to run commands as another user.
+[askubuntu.com Why Bash Profile is Not Getting Sourced](https://askubuntu.com/questions/121073/why-bash-profile-is-not-getting-sourced-when-opening-a-terminal)
+
+Create .bash_profile <- *~/.bash_profile is not sourced at all when you log in graphically, use ~/.bashrc*
+
+> touch ~/.bash_profile
+
+Add `export VARIABLE_NAME=VALUE` in ~/.bashrc
+> nano ~/.bashrc*
+
+**Setting Permanent Global Environment Variables for All Users**
+
+Add systemwide env variable
+Create a new file under `/etc/profile.d` to store the global environment variable(s), the name of the file should be contextual.
+> nano /etc/profile.d/aws.sh
+Add `export SAM_CLI_TELEMETRY=0` in `aws.sh` file
+*Require relogin*
+
 
 # Gnu/Linux terminal commands
 
