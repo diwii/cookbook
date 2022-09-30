@@ -6,7 +6,9 @@
 # Set Environment Variables
 
 > export VARIABLE_NAME=VALUE
+
 > echo VARIABLE_NAME
+
 > unset VARIABLE_NAME
 
 Set env var - *When an environment variable is set from the shell using the export command, its existence ends when the user’s sessions ends.*
@@ -42,10 +44,12 @@ Add `export VARIABLE_NAME=VALUE` in ~/.bashrc
 **Setting Permanent Global Environment Variables for All Users**
 
 Add systemwide env variable
+
 Create a new file under `/etc/profile.d` to store the global environment variable(s), the name of the file should be contextual.
+
 > nano /etc/profile.d/aws.sh
-Add `export SAM_CLI_TELEMETRY=0` in `aws.sh` file
-*Require relogin*
+
+Add `export SAM_CLI_TELEMETRY=0` in `aws.sh` file *Require relogin*
 
 
 # Gnu/Linux terminal commands
