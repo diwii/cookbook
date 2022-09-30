@@ -32,6 +32,16 @@
   * Test if configuration successful: `aws ec2 describe-vpcs`
   * If you are accessing more than one AWS account, you can set up profiles
 
+## AWS SAM CLI (AWS Serverless Application Model Command Line Interface)
+
+[Installing the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+
+**Requirements**
+
+* docker
+
+
+
 ## Setting Up Your Cloud9 IDE Environment
 [Setting Up Your Cloud9 IDE Environment](https://aws.amazon.com/getting-started/guides/setup-environment/module-four/)
 
